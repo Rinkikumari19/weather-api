@@ -20,13 +20,14 @@ class Api_comp extends Component{
       }
     
     render(){
-        console.log(this.state.search, "hiiiii")
+        // console.log(this.state.search, "hiiiii")
         return(
-            <div>
+            <div className='main'>
                 <h1>Weather API</h1>
                 <input className='input-box' type='text' disable={this.disable} onChange={this.handleChange} value = {this.state.search} placeholder='Write Something........' ></input>
                 <div>
-                    {this.state.search.length > 0 ? (<button className='searchBtn' value = {this.state.search} onClick={() => this.handlesubmit()}>search</button>):(<div>{this.disable}</div>)}
+                   
+                    {this.state.search.length > 0 ? (<div className='sear_btn'> <button className='searchBtn' value = {this.state.search} onClick={() => this.handlesubmit()}>search</button></div>):(<div>{this.disable}</div>)}
                     {/* {this.state.search.length > 0 ? (
                     <button className='searchBtn'disabled={false} onClick={() => this.handlesubmit()}>search</button>
                     ):(
@@ -36,7 +37,6 @@ class Api_comp extends Component{
                 <div>
                     {this.state.disable===false && (<FetchData inputData={this.state.search}/>)}
                 </div>
-                {/* <FetchData /> */}
             </div>
         )
     }
